@@ -1,7 +1,10 @@
 import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import { CSS3DRenderer, CSS3DObject } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
+
 import * as dat from 'lil-gui'
+import { Sphere } from 'three';
 
 
 
@@ -15,6 +18,14 @@ import * as dat from 'lil-gui'
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
+ document.getElementById("paris").addEventListener("click", paris, false);
+function paris(){
+
+    camera.lookAt(2.67, 2.38,3)
+    console.log(camera.position)
+
+}
+
 
 // Scene
 const scene = new THREE.Scene()
@@ -26,7 +37,6 @@ const textureLoader = new THREE.TextureLoader()
 const earthTexture = textureLoader.load('/textures/earthmap.jpg')
 const earthCloundTexture = textureLoader.load('/textures/earthcloudmapthumb.jpg')
 const earthCloudmapTransThumbTexture = textureLoader.load('/textures/earthcloudmaptransthumb.jpg')
-const earthHiresCloudsThumbTexture = textureLoader.load('/textures/earthhirescloudsthumb.jpg')
 const earthLightsThumbTexture = textureLoader.load('/textures/earthLightsThumb.jpg')
 const earthMapThumbTexture = textureLoader.load('/textures/earthmapthumb.jpg')
 const earthspecthumbTexture = textureLoader.load('/textures/earthspecthumb.jpg')
@@ -40,12 +50,12 @@ const planetMesh = new THREE.MeshStandardMaterial({
 
 
     map: earthTexture,
-    // alphaMap : earthspecthumbTexture,
-    // aoMap: earthMapThumbTexture,
-    // lightMap: earthLightsThumbTexture,
+    alphaMap : earthspecthumbTexture,
+    aoMap: earthMapThumbTexture,
+     lightMap: earthLightsThumbTexture,
     
 
-    // metalnessMap : earthCloundTexture, roughnessMap : earthCloudmapTransThumbTexture
+    metalnessMap : earthCloundTexture, roughnessMap : earthCloudmapTransThumbTexture
 
 
 
@@ -179,6 +189,8 @@ const clock = new THREE.Clock()
 const tick = () =>
 {
     const elapsedTime = clock.getElapsedTime()
+    camera.lookAt(10, 10, 0);
+
 
 
     if(curState == 1){
@@ -188,14 +200,13 @@ const tick = () =>
     }
     else{
             planet.rotation.y = planet.rotation.y + 0.001
-            console.log(planet.rotation.y)
 
     }
     //star rotation
     planet.position.y = Math.sin(elapsedTime *2) /20
  
     
- 
+ console.log(planet.position)
 
 
 
