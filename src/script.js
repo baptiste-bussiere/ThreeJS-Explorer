@@ -29,7 +29,7 @@ function paris(){
 
 // Scene
 const scene = new THREE.Scene()
-const fog = new THREE.Fog('#262837', 1, 15)
+const fog = new THREE.Fog('#262837', 1, 10)
 scene.fog = fog
 
 const textureLoader = new THREE.TextureLoader()
@@ -81,7 +81,7 @@ scene.add(moonLight)
 
 const starGeometry = new THREE.BoxGeometry(0.01, 0.01, 0.01)
 const starMaterial = new THREE.MeshBasicMaterial({color: 0xffffff})
-for(let i=0; i<1000; i++)
+for(let i=0; i<2000; i++)
 {
     var star = new THREE.Mesh(starGeometry, starMaterial)
     scene.add(star)
