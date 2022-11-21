@@ -17,13 +17,16 @@ import { Sphere } from 'three';
 const canvas = document.querySelector('canvas.webgl')
 document.getElementById("paris").addEventListener("click", paris, false);
 document.getElementById("pekin").addEventListener("click", pekin, false);
+document.getElementById("newYork").addEventListener("click", newYork, false);
+document.getElementById("kinshasa").addEventListener("click", kinshasa, false);
+document.getElementById("rio").addEventListener("click", rio, false);
 
 
 function paris() {
     gsap.to(camera.position, {
-            x: 1.83,
-            y: 1.98,
-            z: -0.077,
+            x: 2.046806703747802,
+            y: 2.016057044579229,
+            z: -0.12408187013244629,
             duration: 2,
             ease: 'Sine.easeOut'
         }
@@ -34,9 +37,50 @@ function paris() {
 
 function pekin() {
     gsap.to(camera.position, {
-            x: -0.8971558612191658,
-            y: 1.5472256980878771,
-            z: -1.6573702456722819,
+            x: -1.0089877102056715,
+            y: 1.766770691931371,
+            z: -2.0321826167961063,
+            duration: 2,
+            ease: 'Sine.easeOut'
+        }
+
+    )
+
+}
+
+function newYork() {
+    gsap.to(camera.position, {
+            x: 0.46959919262731076,
+            y: 1.7494196253091387,
+            z: 2.0046778248227906,
+            duration: 2,
+            ease: 'Sine.easeOut'
+        }
+
+    )
+
+}
+
+function kinshasa() {
+    gsap.to(camera.position, {
+            x: 2.5655376711414934,
+            y: 0.026693531532835088,
+            z: -0.8467759572622735,
+            duration: 2,
+            ease: 'Sine.easeOut'
+        }
+
+    )
+
+
+
+}
+
+function rio() {
+    gsap.to(camera.position, {
+            x: -1.0089877102056715,
+            y: 1.766770691931371,
+            z: -2.0321826167961063,
             duration: 2,
             ease: 'Sine.easeOut'
         }
