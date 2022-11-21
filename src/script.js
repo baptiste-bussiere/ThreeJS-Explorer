@@ -2,7 +2,7 @@ import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { CSS3DRenderer, CSS3DObject } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
-
+import gsap from 'gsap'
 import * as dat from 'lil-gui'
 import { Sphere } from 'three';
 
@@ -12,19 +12,43 @@ import { Sphere } from 'three';
 
 // PanelDebug
 
-// const gui = new dat.GUI()
-// gui.add(ambientLight, 'intensity').min(0).max(1).step(0.001)
-
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
- document.getElementById("paris").addEventListener("click", paris, false);
-function paris(){
+document.getElementById("paris").addEventListener("click", paris, false);
+document.getElementById("pekin").addEventListener("click", pekin, false);
 
-    camera.lookAt(2.67, 2.38,3)
-    console.log(camera.position)
+
+function paris() {
+    gsap.to(camera.position, {
+            x: 1.83,
+            y: 1.98,
+            z: -0.077,
+            duration: 2,
+            ease: 'Sine.easeOut'
+        }
+
+    )
 
 }
+
+function pekin() {
+    gsap.to(camera.position, {
+            x: -0.8971558612191658,
+            y: 1.5472256980878771,
+            z: -1.6573702456722819,
+            duration: 2,
+            ease: 'Sine.easeOut'
+        }
+
+    )
+
+}
+
+
+
+
+
 
 
 // Scene
@@ -45,23 +69,25 @@ const earthspecthumbTexture = textureLoader.load('/textures/earthspecthumb.jpg')
 
 ///// BoxGeometry //////
 
-const planetGeometry = new THREE.SphereGeometry(2,64,64)
+const planetGeometry = new THREE.SphereGeometry(2, 64, 64)
 const planetMesh = new THREE.MeshStandardMaterial({
 
 
     map: earthTexture,
-    alphaMap : earthspecthumbTexture,
+    alphaMap: earthspecthumbTexture,
     aoMap: earthMapThumbTexture,
-     lightMap: earthLightsThumbTexture,
-    
-
-    metalnessMap : earthCloundTexture, roughnessMap : earthCloudmapTransThumbTexture
+    lightMap: earthLightsThumbTexture,
+    metalnessMap: earthCloundTexture,
+    roughnessMap: earthCloudmapTransThumbTexture
 
 
 
 })
 const planet = new THREE.Mesh(planetGeometry, planetMesh)
-
+const gui = new dat.GUI()
+gui.add(planet.rotation, 'x').min(0).max(1).step(0.001)
+gui.add(planet.rotation, 'y').min(0).max(10).step(0.001)
+gui.add(planet.rotation, 'z').min(0).max(1).step(0.001)
 
 //position 
 
@@ -76,29 +102,28 @@ scene.add(ambientLight)
 
 // Directional light
 const moonLight = new THREE.DirectionalLight('#FFF1E5', 0.8)
-moonLight.position.set(4, 5, - 2)
+moonLight.position.set(4, 5, -2)
 scene.add(moonLight)
 
 const starGeometry = new THREE.BoxGeometry(0.01, 0.01, 0.01)
-const starMaterial = new THREE.MeshBasicMaterial({color: 0xffffff})
-for(let i=0; i<2000; i++)
-{
+const starMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff })
+for (let i = 0; i < 2000; i++) {
     var star = new THREE.Mesh(starGeometry, starMaterial)
     scene.add(star)
-    
+
     const angle = Math.random() * Math.PI * 2
     const radius = 3 + Math.random() * 6
-  
+
     const z = Math.sin(angle) * radius
     const x = Math.cos(angle) * radius
-    const y = Math.random() * (-20 - 20) + 20 
-   
- star.position.set(x,y,z)
- star.rotation.y = (Math.random() - 0.5) * 0.4
- star.rotation.z = (Math.random() - 0.5) * 0.4
- 
- scene.add(star)
- 
+    const y = Math.random() * (-20 - 20) + 20
+
+    star.position.set(x, y, z)
+    star.rotation.y = (Math.random() - 0.5) * 0.4
+    star.rotation.z = (Math.random() - 0.5) * 0.4
+
+    scene.add(star)
+
 }
 
 
@@ -110,8 +135,7 @@ const sizes = {
     height: window.innerHeight
 }
 
-window.addEventListener('resize', () =>
-{
+window.addEventListener('resize', () => {
     // Update sizes
     sizes.width = window.innerWidth
     sizes.height = window.innerHeight
@@ -132,43 +156,44 @@ const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 
 camera.position.x = 0
 camera.position.y = 0
 camera.position.z = 5
+
+
 scene.add(camera)
 
 /////  Cursor  //////
 
 //cursor 
 let curState = 0
-window.addEventListener('mousedown' , (event) =>{
- curState = event.buttons
+window.addEventListener('mousedown', (event) => {
+    curState = event.buttons
 
-  
+
 
 
 })
-window.addEventListener('mouseup' , (event) =>{
+window.addEventListener('mouseup', (event) => {
     curState = event.buttons
-   
-    
-   
-   
-   })
+
+
+
+
+})
 
 
 const cursor = {
     x: 0,
-    y:0
+    y: 0
 }
 window.addEventListener('mousemove', (event) => {
-        cursor.x = event.clientX / sizes.width - 0.5
-        cursor.y = event.clientY / sizes.height - 0.5
-    })
+    cursor.x = event.clientX / sizes.width - 0.5
+    cursor.y = event.clientY / sizes.height - 0.5
+})
 
 ///// Controls  //////
-
-
 const controls = new OrbitControls(camera, canvas)
-controls.enableDamping = true
-controls.enableZoom = false
+
+
+
 
 ///// Renderer //////
 
@@ -180,35 +205,33 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setClearColor('#000')
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+renderer.toneMapping = THREE.ACESFilmicToneMapping
 renderer.shadowMap.enabled = true
 renderer.shadowMap.type = THREE.PCFSoftShadowMap
-
-///// Animate //////
+camera.lookAt(planet)
+    ///// Animate //////
 
 const clock = new THREE.Clock()
-const tick = () =>
-{
+const tick = () => {
+
     const elapsedTime = clock.getElapsedTime()
-    camera.lookAt(10, 10, 0);
 
 
 
-    if(curState == 1){
-        
+    // if (curState == 1) {
 
-        planet.rotation.y = planet.rotation.y 
-    }
-    else{
-            planet.rotation.y = planet.rotation.y + 0.001
 
-    }
+    //     planet.rotation.y = planet.rotation.y
+    // } else {
+    //     planet.rotation.y = planet.rotation.y + 0.001
+
+    // }
+
+
     //star rotation
-    planet.position.y = Math.sin(elapsedTime *2) /20
- 
-    
- console.log(planet.position)
+    planet.position.y = Math.sin(elapsedTime * 2) / 20
 
-
+    console.log(camera.position);
 
     // Update controls
     controls.update()
