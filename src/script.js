@@ -24,11 +24,11 @@ document.getElementById("rio").addEventListener("click", rio, false);
 
 function paris() {
     gsap.to(camera.position, {
-            x: 2.046806703747802,
-            y: 2.016057044579229,
-            z: -0.12408187013244629,
+            x: 2.6452021506409835,
+            y: 2.6054622210178153,
+            z: -0.16035804707323903,
             duration: 2,
-            ease: 'Sine.easeOut'
+            ease: 'expo.out'
         }
 
     )
@@ -37,11 +37,11 @@ function paris() {
 
 function pekin() {
     gsap.to(camera.position, {
-            x: -1.0089877102056715,
-            y: 1.766770691931371,
-            z: -2.0321826167961063,
+            x: -1.2217071298382045,
+            y: 2.2421165127614078,
+            z: -2.700293645979473,
             duration: 2,
-            ease: 'Sine.easeOut'
+            ease: 'expo.out'
         }
 
     )
@@ -50,11 +50,11 @@ function pekin() {
 
 function newYork() {
     gsap.to(camera.position, {
-            x: 0.46959919262731076,
-            y: 1.7494196253091387,
-            z: 2.0046778248227906,
+            x: 0.6288503987894959,
+            y: 2.092322045025356,
+            z: 2.7237131225957234,
             duration: 2,
-            ease: 'Sine.easeOut'
+            ease: 'expo.out'
         }
 
     )
@@ -62,15 +62,24 @@ function newYork() {
 }
 
 function kinshasa() {
-    gsap.to(camera.position, {
-            x: 2.5655376711414934,
-            y: 0.026693531532835088,
-            z: -0.8467759572622735,
-            duration: 2,
-            ease: 'Sine.easeOut'
-        }
+    gsap.from(camera.position, {
+                x: 0.46959919262731076,
+                y: 1.7494196253091387,
+                z: 2.0046778248227906,
+                duration: 2,
+                ease: 'expo.out'
+            }
 
-    )
+        ),
+        gsap.to(camera.position, {
+                x: 2.5655376711414934,
+                y: 0.026693531532835088,
+                z: -0.8467759572622735,
+                duration: 2,
+                ease: 'expo.out'
+            }
+
+        )
 
 
 
@@ -78,12 +87,26 @@ function kinshasa() {
 
 function rio() {
     gsap.to(camera.position, {
-            x: -1.0089877102056715,
-            y: 1.766770691931371,
-            z: -2.0321826167961063,
-            duration: 2,
-            ease: 'Sine.easeOut'
+            keyframes: [{
+                    x: 0,
+                    y: 3.061616997868383e-16,
+                    z: 5,
+                    duration: 4,
+                    ease: 'expo.out'
+                },
+                {
+                    x: -1.0089877102056715,
+                    y: 1.766770691931371,
+                    z: -2.0321826167961063,
+                    duration: 4,
+                    ease: 'expo.out'
+                },
+
+
+            ]
+
         }
+
 
     )
 
