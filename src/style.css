@@ -1,35 +1,39 @@
-*
-{
+* {
     margin: 0;
     padding: 0;
 }
 
 html,
-body
-{
+body {
     overflow: hidden;
 }
 
-.webgl
-{
+.webgl {
     position: fixed;
     top: 0;
     left: 0;
     outline: none;
 }
-.button{
+
+.button {
     position: absolute;
     display: flex;
     flex-direction: column;
     top: 50%;
     transform: translate(50%, -50%);
- 
-    
 }
 
-.button button{
+.button button {
     border: 2px solid #fff;
     background-color: #fff;
     border-radius: 0.3em;
     margin: 0.3em;
+}
+
+.dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    color: red;
 }

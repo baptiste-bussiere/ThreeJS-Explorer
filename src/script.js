@@ -24,9 +24,9 @@ document.getElementById("rio").addEventListener("click", rio, false);
 
 function paris() {
     gsap.to(camera.position, {
-            x: 2.6452021506409835,
-            y: 2.6054622210178153,
-            z: -0.16035804707323903,
+            x: 3.1496078106084195,
+            y: 3.9518930904675025,
+            z: -0.1477813068976283,
             duration: 8,
             ease: 'expo.out'
         }
@@ -37,9 +37,9 @@ function paris() {
 
 function pekin() {
     gsap.to(camera.position, {
-            x: -1.2217071298382045,
-            y: 2.2421165127614078,
-            z: -2.700293645979473,
+            x: -1.625519755066334,
+            y: 3.494105846333278,
+            z: -3.2723440734800957,
             duration: 8,
             ease: 'expo.out'
         }
@@ -50,8 +50,8 @@ function pekin() {
 
 function newYork() {
     gsap.to(camera.position, {
-            x: 0.6288503987894959,
-            y: 2.092322045025356,
+            x: 0.7975414363543777,
+            y: 2.8230231251878783,
             z: 2.7237131225957234,
             duration: 8,
             ease: 'expo.out'
@@ -63,9 +63,9 @@ function newYork() {
 
 function kinshasa() {
     gsap.to(camera.position, {
-            x: 3.6248988704673617,
-            y: -0.3047195596542767,
-            z: -0.1960590882684444,
+            x: 4.788606179184865,
+            y: -0.1776550339899127,
+            z: -1.4274766371366157,
             duration: 8,
             ease: 'expo.out'
         }
@@ -77,10 +77,15 @@ function kinshasa() {
 }
 
 function rio() {
-    gsap.timeline()
-        .to(camera.position, { x: 50 })
-        .to(camera.position, { x: 150, y: 50 });
+    gsap.to(camera.position, {
+            x: 3.5342348393435623,
+            y: -1.4945299830661518,
+            z: 3.2055519864567033,
+            duration: 8,
+            ease: 'expo.out'
+        }
 
+    )
 }
 
 
