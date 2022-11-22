@@ -15,79 +15,6 @@ import { Sphere } from 'three';
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
-document.getElementById("paris").addEventListener("click", paris, false);
-document.getElementById("pekin").addEventListener("click", pekin, false);
-document.getElementById("newYork").addEventListener("click", newYork, false);
-document.getElementById("kinshasa").addEventListener("click", kinshasa, false);
-document.getElementById("rio").addEventListener("click", rio, false);
-
-
-function paris() {
-    gsap.to(camera.position, {
-            x: 2.6452021506409835,
-            y: 2.6054622210178153,
-            z: -0.16035804707323903,
-            duration: 8,
-            ease: 'expo.out'
-        }
-
-    )
-
-}
-
-function pekin() {
-    gsap.to(camera.position, {
-            x: -1.2217071298382045,
-            y: 2.2421165127614078,
-            z: -2.700293645979473,
-            duration: 8,
-            ease: 'expo.out'
-        }
-
-    )
-
-}
-
-function newYork() {
-    gsap.to(camera.position, {
-            x: 0.6288503987894959,
-            y: 2.092322045025356,
-            z: 2.7237131225957234,
-            duration: 8,
-            ease: 'expo.out'
-        }
-
-    )
-
-}
-
-function kinshasa() {
-    gsap.to(camera.position, {
-            x: 2.5655376711414934,
-            y: 0.026693531532835088,
-            z: -0.8467759572622735,
-            duration: 8,
-            ease: 'expo.out'
-        }
-
-    )
-
-
-
-}
-
-function rio() {
-    gsap.to(camera.position, {
-            x: -1.0089877102056715,
-            y: 1.766770691931371,
-            z: -2.0321826167961063,
-            duration: 8,
-            ease: 'expo.out'
-        }
-
-    )
-
-}
 
 
 
@@ -171,7 +98,6 @@ for (let i = 0; i < 2000; i++) {
 }
 
 
-
 ///// Sizes //////
 
 const sizes = {
@@ -202,7 +128,125 @@ camera.position.y = 0
 camera.position.z = 5
 
 
+
+
+
 scene.add(camera)
+
+
+
+document.getElementById("paris").addEventListener("click", paris, false);
+document.getElementById("pekin").addEventListener("click", pekin, false);
+document.getElementById("newYork").addEventListener("click", newYork, false);
+document.getElementById("kinshasa").addEventListener("click", kinshasa, false);
+document.getElementById("rio").addEventListener("click", rio, false);
+
+
+
+
+function paris() {
+
+    gsap.timeline()
+
+    .to(camera.position, {
+        x: 2.6452021506409835,
+        y: 2.6054622210178153,
+        z: -0.16035804707323903,
+        duration: 8,
+        ease: 'expo.out'
+    })
+
+}
+
+function pekin() {
+
+    gsap.timeline()
+
+    .to(camera.position, {
+        x: -1.2217071298382045,
+        y: 2.2421165127614078,
+        z: -2.700293645979473,
+        duration: 8,
+        ease: 'expo.out'
+
+
+
+    })
+}
+
+function newYork() {
+
+    gsap.timeline()
+
+    .to(camera.position, {
+        x: 0.6288503987894959,
+        y: 2.092322045025356,
+        z: 2.7237131225957234,
+        duration: 8,
+        ease: 'expo.out'
+
+
+
+    })
+
+
+}
+
+function kinshasa() {
+
+
+
+    gsap.timeline()
+        .to(camera.position, {
+            x: camPos.x,
+            y: camPos.y,
+            z: camPos.z,
+            duration: 1,
+
+
+        })
+        .to(camera.position, {
+            x: 3.6248988704673617,
+            y: -0.3047195596542767,
+            z: -0.760590882684444,
+            duration: 2,
+            ease: 'expo.out'
+
+
+
+        });
+
+
+
+
+}
+
+
+
+function rio() {
+    gsap.timeline()
+        .to(camera.position, {
+            x: camPos.x,
+            y: camPos.y,
+            z: camPos.z,
+            duration: 1,
+
+
+        })
+        .to(camera.position, {
+            x: 0.6288503987894959,
+            y: 2.092322045025356,
+            z: 2.7237131225957234,
+            duration: 2,
+            ease: 'expo.out'
+
+
+
+        });
+
+}
+
+
 
 /////  Cursor  //////
 
@@ -234,8 +278,8 @@ window.addEventListener('mousemove', (event) => {
 })
 
 ///// Controls  //////
-const controls = new OrbitControls(camera, canvas)
-
+// const controls = new OrbitControls(camera, canvas)
+// controls.enableDamping = true
 
 
 
@@ -278,7 +322,8 @@ const tick = () => {
     console.log(camera.position);
 
     // Update controls
-    controls.update()
+
+    // controls.update()
 
     // Render
     renderer.render(scene, camera)
