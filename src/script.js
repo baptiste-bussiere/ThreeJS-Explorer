@@ -24,6 +24,7 @@ document.getElementById("kinshasa").addEventListener("click", kinshasa, false);
 document.getElementById("rio").addEventListener("click", rio, false);
 const dot = document.getElementsByClassName("dot")
 
+
 function paris() {
     gsap.to(camera.position, {
             x: 3.3177627400841536,
@@ -47,6 +48,7 @@ function paris() {
     )
     gsap.to(dot, {
         opacity: 1,
+        delay: 3,
     })
 
 
@@ -77,6 +79,7 @@ function pekin() {
     )
     gsap.to(dot, {
         opacity: 1,
+        delay: 3,
     })
 
 
@@ -104,6 +107,7 @@ function newYork() {
     )
     gsap.to(dot, {
         opacity: 1,
+        delay: 3,
 
 
 
@@ -131,6 +135,7 @@ function kinshasa() {
     )
     gsap.to(dot, {
         opacity: 1,
+        delay: 3,
 
 
 
@@ -160,6 +165,7 @@ function rio() {
     )
     gsap.to(dot, {
         opacity: 1,
+        delay: 3,
 
 
 
@@ -302,15 +308,20 @@ window.addEventListener('mousedown', (event) => {
     curState = event.buttons
     document.getElementById("canvas").style.cursor = "grab"
     const mp = document.getElementsByClassName("desc")
+    const dot = document.getElementsByClassName("dot")
+    gsap.to(dot, {
+        opacity: 0
+    })
 
-    gsap.timeline()
-        .to(mp, {
-            x: "100vw",
-            duration: 2,
-            ease: 'sine.out'
-        })
+    gsap.to(mp, {
+        x: "100vw",
+        duration: 2,
+        ease: 'sine.out'
+    })
+
 
 })
+
 
 
 window.addEventListener('mouseup', (event) => {
@@ -334,7 +345,7 @@ window.addEventListener('mousemove', (event) => {
 ///// Controls  //////
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
-controls.enableZoom = false
+controls.enableZoom = true
 
 
 
@@ -362,7 +373,7 @@ const tick = () => {
     const elapsedTime = clock.getElapsedTime()
     controls.update()
 
-
+    console.log(camera.position)
 
     renderer.render(scene, camera)
 
