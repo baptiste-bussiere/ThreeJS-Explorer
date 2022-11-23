@@ -73,6 +73,7 @@ body {
     background-color: red;
     padding: 0.2em;
     border-radius: 10em;
+    opacity: 0;
 }
 
 @keyframes spin {

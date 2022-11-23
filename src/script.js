@@ -34,9 +34,9 @@ const dot = document.getElementsByClassName("dot")
 
 function paris() {
     gsap.to(camera.position, {
-            x: 3.1496078106084195,
-            y: 3.9518930904675025,
-            z: -0.1477813068976283,
+            x: 3.3177627400841536,
+            y: 3.8109942670812584,
+            z: -0.16763101318958898,
             duration: 2,
             ease: 'sine.out',
         }
@@ -52,6 +52,10 @@ function paris() {
         }
 
     )
+    gsap.to(dot, {
+        opacity: 1,
+        duration: 2,
+    })
 
 
 }
@@ -72,9 +76,9 @@ function pekin() {
 
 function newYork() {
     gsap.to(camera.position, {
-            x: 0.7975414363543777,
-            y: 2.8230231251878783,
-            z: 2.7237131225957234,
+            x: 0.8055788331918728,
+            y: 2.6542562392815596,
+            z: 2.8861929199772756,
             duration: 2,
             ease: 'sine.out'
         }
@@ -246,6 +250,9 @@ window.addEventListener('mousedown', (event) => {
         }
 
     )
+    gsap.to(dot, {
+        opacity: 1
+    })
 
 
 })
@@ -309,23 +316,22 @@ const tick = () => {
 
 
     //star rotation
-    planet.position.y = Math.sin(elapsedTime * 2) / 20
-
-
-    dot.position = Math.sin(elapsedTime * 2) / 20
+    // planet.position.y = Math.sin(elapsedTime * 2) / 20
 
 
 
-)
 
-// Update controls
-controls.update()
+    console.log(camera.position)
 
-// Render
-renderer.render(scene, camera)
 
-// Call tick again on the next frame
-window.requestAnimationFrame(tick)
+    // Update controls
+    controls.update()
+
+    // Render
+    renderer.render(scene, camera)
+
+    // Call tick again on the next frame
+    window.requestAnimationFrame(tick)
 }
 
 tick()
