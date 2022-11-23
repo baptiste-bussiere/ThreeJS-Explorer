@@ -46,4 +46,34 @@ body {
     bottom: 0;
     z-index: 1;
     background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-container::before {
+    content: '';
+    position: absolute;
+    border-radius: 10em;
+    border: 3px dashed #000;
+    width: 100px;
+    height: 100px;
+    display: block;
+}
+
+.loader-container::after {
+    content: '';
+    position: absolute;
+    border-radius: 10em;
+    border-top: 3px solid #3498db;
+    border-right: 3px solid #3498db;
+    border-left: 3px solid #3498db;
+    border-bottom: 3px solid #3498db;
+    width: 100px;
+    height: 100px;
+    display: block;
+}
+
+.loader-container img {
+    width: 5em;
 }

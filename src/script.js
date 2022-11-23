@@ -94,7 +94,7 @@ function rio() {
 
 const loaderContainer = document.querySelector('.loader-container');
 window.addEventListener('load', () => {
-    loaderContainer.style.display = 'none';
+    //loaderContainer.style.display = 'none';
     gsap.to('load', {
         opacity: 0,
         ease: 'expo.in'
