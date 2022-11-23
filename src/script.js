@@ -272,10 +272,10 @@ scene.add(planet)
 // Ambient light
 const ambientLight = new THREE.AmbientLight('#FFF1E5', 0.8)
 scene.add(ambientLight)
-const gui = new dat.GUI()
-gui.add(planet.position, 'x').min(0).max(1).step(0.001)
-gui.add(planet.position, 'y').min(0).max(10).step(0.001)
-gui.add(planet.position, 'z').min(0).max(10).step(0.001)
+    // const gui = new dat.GUI()
+    // gui.add(planet.position, 'x').min(0).max(1).step(0.001)
+    // gui.add(planet.position, 'y').min(0).max(10).step(0.001)
+    // gui.add(planet.position, 'z').min(0).max(10).step(0.001)
 
 // Directional light
 const moonLight = new THREE.DirectionalLight('#FFF1E5', 0.8)
