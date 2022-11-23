@@ -22,15 +22,7 @@ document.getElementById("pekin").addEventListener("click", pekin, false);
 document.getElementById("newYork").addEventListener("click", newYork, false);
 document.getElementById("kinshasa").addEventListener("click", kinshasa, false);
 document.getElementById("rio").addEventListener("click", rio, false);
-document.getElementById("parisDiv")
-document.getElementById("pekinDiv")
-document.getElementById("newYorkDiv")
-document.getElementById("kinshasaDiv")
-document.getElementsByClassName("desc")
-
 const dot = document.getElementsByClassName("dot")
-
-
 
 function paris() {
     gsap.to(camera.position, {
@@ -42,7 +34,8 @@ function paris() {
         }
 
     )
-    const parisDiv = document.getElementsByClassName("desc")
+
+    const parisDiv = document.getElementsByClassName("parisDiv")
 
 
     gsap.to(parisDiv, {
@@ -54,8 +47,8 @@ function paris() {
     )
     gsap.to(dot, {
         opacity: 1,
-        duration: 2,
     })
+
 
 
 }
@@ -71,6 +64,21 @@ function pekin() {
         }
 
     )
+    const pekinDiv = document.getElementsByClassName("pekinDiv")
+
+
+    gsap.to(pekinDiv, {
+            x: "0",
+            duration: 2,
+            ease: 'sine.out',
+
+        }
+
+    )
+    gsap.to(dot, {
+        opacity: 1,
+    })
+
 
 }
 
@@ -84,6 +92,22 @@ function newYork() {
         }
 
     )
+    const newYorkDiv = document.getElementsByClassName("newYorkDiv")
+
+
+    gsap.to(newYorkDiv, {
+            x: "0",
+            duration: 2,
+            ease: 'sine.out',
+        }
+
+    )
+    gsap.to(dot, {
+        opacity: 1,
+
+
+
+    })
 
 }
 
@@ -95,6 +119,24 @@ function kinshasa() {
         duration: 2,
         ease: 'sine.out'
     })
+    const kinshasaDiv = document.getElementsByClassName("kinshasaDiv")
+
+
+    gsap.to(kinshasaDiv, {
+            x: "0",
+            duration: 2,
+            ease: 'sine.out',
+        }
+
+    )
+    gsap.to(dot, {
+        opacity: 1,
+
+
+
+    })
+
+
 }
 
 function rio() {
@@ -105,8 +147,25 @@ function rio() {
         duration: 2,
         ease: 'sine.out'
     })
-}
+    const rioDiv = document.getElementsByClassName("rioDiv")
 
+
+    gsap.to(rioDiv, {
+            x: "0",
+            duration: 2,
+            ease: 'sine.out',
+
+        }
+
+    )
+    gsap.to(dot, {
+        opacity: 1,
+
+
+
+    })
+
+}
 
 
 
@@ -243,19 +302,17 @@ window.addEventListener('mousedown', (event) => {
     curState = event.buttons
     document.getElementById("canvas").style.cursor = "grab"
     const mp = document.getElementsByClassName("desc")
-    gsap.to(mp, {
+
+    gsap.timeline()
+        .to(mp, {
             x: "100vw",
             duration: 2,
-            ease: 'sine.out',
-        }
-
-    )
-    gsap.to(dot, {
-        opacity: 1
-    })
-
+            ease: 'sine.out'
+        })
 
 })
+
+
 window.addEventListener('mouseup', (event) => {
     curState = event.buttons
     document.getElementById("canvas").style.cursor = "pointer"
@@ -293,7 +350,7 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setClearColor('#000')
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-renderer.toneMapping = THREE.ACESFilmicToneMapping
+    // renderer.toneMapping = THREE.ACESFilmicToneMapping
 renderer.shadowMap.enabled = true
 renderer.shadowMap.type = THREE.PCFSoftShadowMap
 camera.lookAt(planet)
@@ -303,34 +360,12 @@ const clock = new THREE.Clock()
 const tick = () => {
 
     const elapsedTime = clock.getElapsedTime()
-
-
-    // if (curState == 1) {
-
-
-    //     planet.rotation.y = planet.rotation.y
-    // } else {
-    //     planet.rotation.y = planet.rotation.y + 0.001
-
-    // }
-
-
-    //star rotation
-    // planet.position.y = Math.sin(elapsedTime * 2) / 20
-
-
-
-
-    console.log(camera.position)
-
-
-    // Update controls
     controls.update()
 
-    // Render
+
+
     renderer.render(scene, camera)
 
-    // Call tick again on the next frame
     window.requestAnimationFrame(tick)
 }
 
