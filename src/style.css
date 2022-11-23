@@ -65,9 +65,9 @@ body {
     content: '';
     position: absolute;
     border-radius: 10em;
-    border-top: 3px solid #3498db;
-    border-right: 3px solid #3498db;
-    border-left: 3px solid #3498db;
+    border-top: 3px solid #000;
+    border-right: 3px solid red;
+    border-left: 3px solid red;
     border-bottom: 3px solid #3498db;
     width: 100px;
     height: 100px;
