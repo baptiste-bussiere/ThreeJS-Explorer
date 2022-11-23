@@ -14,24 +14,27 @@ import { Sphere } from 'three';
 
 
 // Canvas
+
+
 const canvas = document.querySelector('canvas.webgl')
 document.getElementById("paris").addEventListener("click", paris, false);
 document.getElementById("pekin").addEventListener("click", pekin, false);
 document.getElementById("newYork").addEventListener("click", newYork, false);
 document.getElementById("kinshasa").addEventListener("click", kinshasa, false);
 document.getElementById("rio").addEventListener("click", rio, false);
-
+document.getElementById("canvas").style.cursor = "pointer";
 
 function paris() {
     gsap.to(camera.position, {
             x: 3.1496078106084195,
             y: 3.9518930904675025,
             z: -0.1477813068976283,
-            duration: 4,
-            ease: 'expo.out',
+            duration: 2,
+            ease: 'sine.out',
         }
 
     )
+
 
 }
 
@@ -40,8 +43,8 @@ function pekin() {
             x: -1.625519755066334,
             y: 3.494105846333278,
             z: -3.2723440734800957,
-            duration: 4,
-            ease: 'expo.out'
+            duration: 2,
+            ease: 'sine.out'
         }
 
     )
@@ -53,8 +56,8 @@ function newYork() {
             x: 0.7975414363543777,
             y: 2.8230231251878783,
             z: 2.7237131225957234,
-            duration: 4,
-            ease: 'expo.out'
+            duration: 2,
+            ease: 'sine.out'
         }
 
     )
@@ -63,29 +66,22 @@ function newYork() {
 
 function kinshasa() {
     gsap.to(camera.position, {
-            x: 4.788606179184865,
-            y: -0.1776550339899127,
-            z: -1.4274766371366157,
-            duration: 4,
-            ease: 'expo.out'
-        }
-
-    )
-
-
-
+        x: 4.788606179184865,
+        y: -0.1776550339899127,
+        z: -1.4274766371366157,
+        duration: 2,
+        ease: 'sine.out'
+    })
 }
 
 function rio() {
     gsap.to(camera.position, {
-            x: 3.5342348393435623,
-            y: -1.4945299830661518,
-            z: 3.2055519864567033,
-            duration: 4,
-            ease: 'expo.out'
-        }
-
-    )
+        x: 3.5342348393435623,
+        y: -1.4945299830661518,
+        z: 3.2055519864567033,
+        duration: 2,
+        ease: 'sine.out'
+    })
 }
 
 
@@ -94,10 +90,10 @@ function rio() {
 
 const loaderContainer = document.querySelector('.loader-container');
 window.addEventListener('load', () => {
-    //loaderContainer.style.display = 'none';
-    gsap.to('load', {
+
+    gsap.to(loaderContainer, {
         opacity: 0,
-        ease: 'expo.in'
+        display: "none"
     })
 });
 
@@ -107,7 +103,6 @@ const fog = new THREE.Fog('#262837', 1, 10)
 scene.fog = fog
 
 const textureLoader = new THREE.TextureLoader()
-
 const earthTexture = textureLoader.load('/textures/earthmap.jpg')
 const earthCloundTexture = textureLoader.load('/textures/earthcloudmapthumb.jpg')
 const earthCloudmapTransThumbTexture = textureLoader.load('/textures/earthcloudmaptransthumb.jpg')
@@ -118,7 +113,6 @@ const earthspecthumbTexture = textureLoader.load('/textures/earthspecthumb.jpg')
 
 
 ///// BoxGeometry //////
-
 const planetGeometry = new THREE.SphereGeometry(2, 64, 64)
 const planetMesh = new THREE.MeshStandardMaterial({
 
@@ -176,13 +170,13 @@ for (let i = 0; i < 2000; i++) {
 ///// Sizes //////
 
 const sizes = {
-    width: window.innerWidth / 1.4,
+    width: window.innerWidth,
     height: window.innerHeight
 }
 
 window.addEventListener('resize', () => {
     // Update sizes
-    sizes.width = window.innerWidth / 1.4
+    sizes.width = window.innerWidth
     sizes.height = window.innerHeight
 
     // Update camera
@@ -205,7 +199,7 @@ gsap.to(camera.position, {
         x: 4.413627918071142,
         y: 2.368210056971596,
         z: 0.6861464791526538,
-        duration: 4,
+        duration: 2,
         ease: 'expo.out',
     }
 
@@ -247,7 +241,7 @@ window.addEventListener('mousemove', (event) => {
 
 ///// Controls  //////
 const controls = new OrbitControls(camera, canvas)
-
+controls.enableDamping = true
 
 
 
