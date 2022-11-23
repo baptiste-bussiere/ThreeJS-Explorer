@@ -28,6 +28,8 @@ document.getElementById("newYorkDiv")
 document.getElementById("kinshasaDiv")
 document.getElementsByClassName("desc")
 
+const dot = document.getElementsByClassName("dot")
+
 
 
 function paris() {
@@ -308,16 +310,22 @@ const tick = () => {
 
     //star rotation
     planet.position.y = Math.sin(elapsedTime * 2) / 20
-    console.log(curState);
 
-    // Update controls
-    controls.update()
 
-    // Render
-    renderer.render(scene, camera)
+    dot.position = Math.sin(elapsedTime * 2) / 20
 
-    // Call tick again on the next frame
-    window.requestAnimationFrame(tick)
+
+
+)
+
+// Update controls
+controls.update()
+
+// Render
+renderer.render(scene, camera)
+
+// Call tick again on the next frame
+window.requestAnimationFrame(tick)
 }
 
 tick()
