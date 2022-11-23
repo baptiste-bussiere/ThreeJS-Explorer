@@ -27,8 +27,8 @@ function paris() {
             x: 3.1496078106084195,
             y: 3.9518930904675025,
             z: -0.1477813068976283,
-            duration: 8,
-            ease: 'expo.out'
+            duration: 4,
+            ease: 'expo.out',
         }
 
     )
@@ -40,7 +40,7 @@ function pekin() {
             x: -1.625519755066334,
             y: 3.494105846333278,
             z: -3.2723440734800957,
-            duration: 8,
+            duration: 4,
             ease: 'expo.out'
         }
 
@@ -53,7 +53,7 @@ function newYork() {
             x: 0.7975414363543777,
             y: 2.8230231251878783,
             z: 2.7237131225957234,
-            duration: 8,
+            duration: 4,
             ease: 'expo.out'
         }
 
@@ -66,7 +66,7 @@ function kinshasa() {
             x: 4.788606179184865,
             y: -0.1776550339899127,
             z: -1.4274766371366157,
-            duration: 8,
+            duration: 4,
             ease: 'expo.out'
         }
 
@@ -81,7 +81,7 @@ function rio() {
             x: 3.5342348393435623,
             y: -1.4945299830661518,
             z: 3.2055519864567033,
-            duration: 8,
+            duration: 4,
             ease: 'expo.out'
         }
 
@@ -92,7 +92,14 @@ function rio() {
 
 
 
-
+const loaderContainer = document.querySelector('.loader-container');
+window.addEventListener('load', () => {
+    loaderContainer.style.display = 'none';
+    gsap.to('load', {
+        opacity: 0,
+        ease: 'expo.in'
+    })
+});
 
 // Scene
 const scene = new THREE.Scene()
@@ -127,10 +134,6 @@ const planetMesh = new THREE.MeshStandardMaterial({
 
 })
 const planet = new THREE.Mesh(planetGeometry, planetMesh)
-const gui = new dat.GUI()
-gui.add(planet.rotation, 'x').min(0).max(1).step(0.001)
-gui.add(planet.rotation, 'y').min(0).max(10).step(0.001)
-gui.add(planet.rotation, 'z').min(0).max(1).step(0.001)
 
 //position 
 
@@ -173,13 +176,13 @@ for (let i = 0; i < 2000; i++) {
 ///// Sizes //////
 
 const sizes = {
-    width: window.innerWidth,
+    width: window.innerWidth / 1.4,
     height: window.innerHeight
 }
 
 window.addEventListener('resize', () => {
     // Update sizes
-    sizes.width = window.innerWidth
+    sizes.width = window.innerWidth / 1.4
     sizes.height = window.innerHeight
 
     // Update camera
@@ -195,10 +198,18 @@ window.addEventListener('resize', () => {
 
 
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.x = 0
-camera.position.y = 0
-camera.position.z = 5
+camera.position.x = 10.264790463695132
+camera.position.y = 10.693767581694678
+camera.position.z = -0.8063634522760551
+gsap.to(camera.position, {
+        x: 4.413627918071142,
+        y: 2.368210056971596,
+        z: 0.6861464791526538,
+        duration: 4,
+        ease: 'expo.out',
+    }
 
+)
 
 
 
@@ -245,6 +256,8 @@ const controls = new OrbitControls(camera, canvas)
 const renderer = new THREE.WebGLRenderer({
     canvas: canvas
 })
+
+
 
 
 renderer.setClearColor('#000')
