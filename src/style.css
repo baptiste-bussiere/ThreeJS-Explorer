@@ -79,3 +79,15 @@ body {
 .loader-container img {
     width: 5em;
 }
+
+.desc {
+    display: flex;
+    position: absolute;
+    background-color: #fff;
+    z-index: 3;
+    transform: translateX(100vw);
+    width: 20%;
+    height: 100%;
+    right: 0;
+    top: 0;
+}

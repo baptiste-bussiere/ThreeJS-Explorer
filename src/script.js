@@ -22,6 +22,12 @@ document.getElementById("pekin").addEventListener("click", pekin, false);
 document.getElementById("newYork").addEventListener("click", newYork, false);
 document.getElementById("kinshasa").addEventListener("click", kinshasa, false);
 document.getElementById("rio").addEventListener("click", rio, false);
+document.getElementById("parisDiv")
+document.getElementById("pekinDiv")
+document.getElementById("newYorkDiv")
+document.getElementById("kinshasaDiv")
+document.getElementsByClassName("desc")
+
 
 
 function paris() {
@@ -34,9 +40,20 @@ function paris() {
         }
 
     )
+    const parisDiv = document.getElementsByClassName("desc")
+
+
+    gsap.to(parisDiv, {
+            x: "0",
+            duration: 2,
+            ease: 'sine.out',
+        }
+
+    )
 
 
 }
+
 
 function pekin() {
     gsap.to(camera.position, {
@@ -219,6 +236,14 @@ document.getElementById("canvas").style.cursor = "pointer"
 window.addEventListener('mousedown', (event) => {
     curState = event.buttons
     document.getElementById("canvas").style.cursor = "grab"
+    const mp = document.getElementsByClassName("desc")
+    gsap.to(mp, {
+            x: "100vw",
+            duration: 2,
+            ease: 'sine.out',
+        }
+
+    )
 
 
 })
@@ -253,10 +278,7 @@ const renderer = new THREE.WebGLRenderer({
     canvas: canvas
 })
 
-if (curState == 1) {
-    // document.getElementById("canvas").style.width = "10vh"
-    console.log('coucou');
-}
+
 
 
 renderer.setClearColor('#000')
