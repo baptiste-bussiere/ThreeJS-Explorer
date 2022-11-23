@@ -22,7 +22,7 @@ document.getElementById("pekin").addEventListener("click", pekin, false);
 document.getElementById("newYork").addEventListener("click", newYork, false);
 document.getElementById("kinshasa").addEventListener("click", kinshasa, false);
 document.getElementById("rio").addEventListener("click", rio, false);
-document.getElementById("canvas").style.cursor = "pointer";
+
 
 function paris() {
     gsap.to(camera.position, {
@@ -214,20 +214,21 @@ scene.add(camera)
 
 //cursor 
 let curState = 0
+document.getElementById("canvas").style.cursor = "pointer"
+
 window.addEventListener('mousedown', (event) => {
     curState = event.buttons
-
-
+    document.getElementById("canvas").style.cursor = "grab"
 
 
 })
 window.addEventListener('mouseup', (event) => {
     curState = event.buttons
-
-
+    document.getElementById("canvas").style.cursor = "pointer"
 
 
 })
+
 
 
 const cursor = {
@@ -242,6 +243,7 @@ window.addEventListener('mousemove', (event) => {
 ///// Controls  //////
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
+controls.enableZoom = false
 
 
 
@@ -251,7 +253,10 @@ const renderer = new THREE.WebGLRenderer({
     canvas: canvas
 })
 
-
+if (curState == 1) {
+    // document.getElementById("canvas").style.width = "10vh"
+    console.log('coucou');
+}
 
 
 renderer.setClearColor('#000')
@@ -267,7 +272,6 @@ const clock = new THREE.Clock()
 const tick = () => {
 
     const elapsedTime = clock.getElapsedTime()
-    console.log(camera.position);
 
 
     // if (curState == 1) {
@@ -282,8 +286,7 @@ const tick = () => {
 
     //star rotation
     planet.position.y = Math.sin(elapsedTime * 2) / 20
-
-    console.log(camera.position);
+    console.log(curState);
 
     // Update controls
     controls.update()
