@@ -26,22 +26,31 @@ const dot = document.getElementsByClassName("dot")
 
 
 function paris() {
-    gsap.to(camera.position, {
-            x: 3.3177627400841536,
-            y: 3.8109942670812584,
-            z: -0.16763101318958898,
-            duration: 2,
-            ease: 'sine.out',
-        }
+    const camPos = camera.position.x
+    gsap.timeline()
+        .to(camera.position, {
+                x: camPos + 2,
+                duration: 1.5,
+                ease: 'sine.out'
+            }
 
-    )
+        )
+        .to(camera.position, {
+                x: 2.198711992207561,
+                y: 2.5309250398609526,
+                z: -0.09708496144180537,
+                duration: 1.5,
+                ease: 'sine.out',
+            }
+
+        )
 
     const parisDiv = document.getElementsByClassName("parisDiv")
 
 
     gsap.to(parisDiv, {
             x: "0",
-            duration: 2,
+            duration: 1.5,
             ease: 'sine.out',
         }
 
@@ -56,22 +65,33 @@ function paris() {
 }
 
 
-function pekin() {
-    gsap.to(camera.position, {
-            x: -1.625519755066334,
-            y: 3.494105846333278,
-            z: -3.2723440734800957,
-            duration: 2,
-            ease: 'sine.out'
-        }
 
-    )
+function pekin() {
+    const camPos = camera.position.x
+    gsap.timeline()
+        .to(camera.position, {
+                x: camPos + 5,
+                duration: 1.5,
+                ease: 'sine.ot'
+            }
+
+        )
+        .to(camera.position, {
+                x: -0.9985264262093656,
+                y: 1.880411024301063,
+                z: -1.9329508821241765,
+                duration: 1.5,
+                duration: 1.5,
+                ease: 'sine.out'
+            }
+
+        )
     const pekinDiv = document.getElementsByClassName("pekinDiv")
 
 
     gsap.to(pekinDiv, {
             x: "0",
-            duration: 2,
+            duration: 1.5,
             ease: 'sine.out',
 
         }
@@ -86,21 +106,29 @@ function pekin() {
 }
 
 function newYork() {
-    gsap.to(camera.position, {
-            x: 0.8055788331918728,
-            y: 2.6542562392815596,
-            z: 2.8861929199772756,
-            duration: 2,
-            ease: 'sine.out'
-        }
+    const camPos = camera.position.x
+    gsap.timeline()
+        .to(camera.position, {
+                x: camPos + 5,
+                duration: 1.5,
+                ease: 'sine.ot'
+            }
 
-    )
+        ).to(camera.position, {
+                x: 0.5085394127015427,
+                y: 1.6707533115916855,
+                z: 1.8207113632967111,
+                duration: 1.5,
+                ease: 'sine.out'
+            }
+
+        )
     const newYorkDiv = document.getElementsByClassName("newYorkDiv")
 
 
     gsap.to(newYorkDiv, {
             x: "0",
-            duration: 2,
+            duration: 1.5,
             ease: 'sine.out',
         }
 
@@ -116,19 +144,27 @@ function newYork() {
 }
 
 function kinshasa() {
-    gsap.to(camera.position, {
-        x: 4.788606179184865,
-        y: -0.1776550339899127,
-        z: -1.4274766371366157,
-        duration: 2,
-        ease: 'sine.out'
-    })
+    const camPos = camera.position.x
+    gsap.timeline()
+        .to(camera.position, {
+                x: camPos + 3,
+                duration: 1.5,
+                ease: 'sine.ot'
+            }
+
+        ).to(camera.position, {
+            x: 3.367553453084995,
+            y: -0.17120190049557937,
+            z: -0.9067236570183514,
+            duration: 1.5,
+            ease: 'sine.out'
+        })
     const kinshasaDiv = document.getElementsByClassName("kinshasaDiv")
 
 
     gsap.to(kinshasaDiv, {
             x: "0",
-            duration: 2,
+            duration: 1.5,
             ease: 'sine.out',
         }
 
@@ -145,19 +181,27 @@ function kinshasa() {
 }
 
 function rio() {
-    gsap.to(camera.position, {
-        x: 3.5342348393435623,
-        y: -1.4945299830661518,
-        z: 3.2055519864567033,
-        duration: 2,
-        ease: 'sine.out'
-    })
+    const camPos = camera.position.x
+    gsap.timeline()
+        .to(camera.position, {
+                x: camPos + 3,
+                duration: 1.5,
+                ease: 'sine.ot'
+            }
+
+        ).to(camera.position, {
+            x: 1.8537427679803309,
+            y: -1.0000599261138936,
+            z: 1.6921121926180542,
+            duration: 1.5,
+            ease: 'sine.out'
+        })
     const rioDiv = document.getElementsByClassName("rioDiv")
 
 
     gsap.to(rioDiv, {
             x: "0",
-            duration: 2,
+            duration: 1.5,
             ease: 'sine.out',
 
         }
@@ -217,6 +261,7 @@ const planetMesh = new THREE.MeshStandardMaterial({
 })
 const planet = new THREE.Mesh(planetGeometry, planetMesh)
 
+
 //position 
 
 scene.add(planet)
@@ -227,6 +272,10 @@ scene.add(planet)
 // Ambient light
 const ambientLight = new THREE.AmbientLight('#FFF1E5', 0.8)
 scene.add(ambientLight)
+const gui = new dat.GUI()
+gui.add(planet.position, 'x').min(0).max(1).step(0.001)
+gui.add(planet.position, 'y').min(0).max(10).step(0.001)
+gui.add(planet.position, 'z').min(0).max(10).step(0.001)
 
 // Directional light
 const moonLight = new THREE.DirectionalLight('#FFF1E5', 0.8)
@@ -287,7 +336,7 @@ gsap.to(camera.position, {
         x: 4.413627918071142,
         y: 2.368210056971596,
         z: 0.6861464791526538,
-        duration: 2,
+        duration: 1.5,
         ease: 'expo.out',
     }
 
@@ -315,7 +364,7 @@ window.addEventListener('mousedown', (event) => {
 
     gsap.to(mp, {
         x: "100vw",
-        duration: 2,
+        duration: 1.5,
         ease: 'sine.out'
     })
 
