@@ -29,10 +29,12 @@ body {
     border: none;
     color: #fff;
     background-color: transparent;
-    margin: 0.3em;
     font-size: 1.5em;
     cursor: pointer;
     font-family: 'Space Mono', monospace;
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .loader-container {
@@ -63,7 +65,7 @@ body {
     top: 2em;
     left: 2em;
     z-index: 5;
-    width: 10em;
+    width: 5em;
 }
 
 .loader-container::after {
