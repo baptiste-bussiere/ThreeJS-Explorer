@@ -7,8 +7,7 @@ import * as dat from 'lil-gui'
 import { Sphere } from 'three';
 
 
-const gui = new dat.GUI()
-    ///// Start //////
+///// Start //////
 
 // PanelDebug
 
@@ -379,8 +378,8 @@ const ambientLight = new THREE.AmbientLight('#FFF1E5', 0.8)
 scene.add(ambientLight)
 
 const moonLight = new THREE.DirectionalLight('#FFF1E5', 0.8)
-moonLight.position.set(4, 5, -2)
-gui.add(ambientLight.position, 'x').min(0).max(10).step(0.1)
+moonLight.position.set(4, 0, 3.9)
+
 camera.add(moonLight)
 
 camera.position.x = 10.264790463695132
