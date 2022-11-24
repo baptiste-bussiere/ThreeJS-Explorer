@@ -7,8 +7,8 @@ import * as dat from 'lil-gui'
 import { Sphere } from 'three';
 
 
-
-///// Start //////
+const gui = new dat.GUI()
+    ///// Start //////
 
 // PanelDebug
 
@@ -19,8 +19,9 @@ import { Sphere } from 'three';
 const canvas = document.querySelector('canvas.webgl')
 document.getElementById("paris").addEventListener("click", paris, false);
 document.getElementById("pekin").addEventListener("click", pekin, false);
+document.getElementById("perth").addEventListener("click", perth, false);
+document.getElementById("marrakech").addEventListener("click", marakech, false);
 document.getElementById("newYork").addEventListener("click", newYork, false);
-document.getElementById("kinshasa").addEventListener("click", kinshasa, false);
 document.getElementById("rio").addEventListener("click", rio, false);
 const dot = document.getElementsByClassName("dot")
 
@@ -143,7 +144,51 @@ function newYork() {
 
 }
 
-function kinshasa() {
+function perth() {
+    const camPos = camera.position.x
+    gsap.timeline()
+        .to(camera.position, {
+                x: camPos + 5,
+                duration: 1.5,
+                ease: 'sine.ot'
+            }
+
+        ).to(camera.position, {
+            x: -0.916295041826343,
+            y: -1.2540765000710614,
+            z: -1.9147821474383242,
+            duration: 1.5,
+            ease: 'sine.out'
+        })
+        .to(ambientLight.position, {
+            x: -0.916295041826343,
+            y: -1.2540765000710614,
+            z: -1.9147821474383242,
+            duration: 1.5,
+            ease: 'sine.out'
+        })
+    const perthDiv = document.getElementsByClassName("perthDiv")
+
+
+    gsap.to(perthDiv, {
+            x: "0",
+            duration: 1.5,
+            ease: 'sine.out',
+        }
+
+    )
+    gsap.to(dot, {
+        opacity: 1,
+        delay: 3,
+
+
+
+    })
+
+
+}
+
+function marakech() {
     const camPos = camera.position.x
     gsap.timeline()
         .to(camera.position, {
@@ -153,16 +198,16 @@ function kinshasa() {
             }
 
         ).to(camera.position, {
-            x: 3.367553453084995,
-            y: -0.17120190049557937,
-            z: -0.9067236570183514,
+            x: 2.1474317791605753,
+            y: 1.3809723537339964,
+            z: 0.26353936491437174,
             duration: 1.5,
             ease: 'sine.out'
         })
-    const kinshasaDiv = document.getElementsByClassName("kinshasaDiv")
+    const maraDiv = document.getElementsByClassName("maraDiv")
 
 
-    gsap.to(kinshasaDiv, {
+    gsap.to(maraDiv, {
             x: "0",
             duration: 1.5,
             ease: 'sine.out',
@@ -269,19 +314,16 @@ scene.add(planet)
 
 ///// Lights //////
 
-// Ambient light
-const ambientLight = new THREE.AmbientLight('#FFF1E5', 0.8)
-scene.add(ambientLight)
-    // const gui = new dat.GUI()
-    // gui.add(planet.position, 'x').min(0).max(1).step(0.001)
-    // gui.add(planet.position, 'y').min(0).max(10).step(0.001)
-    // gui.add(planet.position, 'z').min(0).max(10).step(0.001)
+
+
+// const gui = new dat.GUI()
+// gui.add(planet.position, 'x').min(0).max(1).step(0.001)
+// gui.add(planet.position, 'y').min(0).max(10).step(0.001)
+// gui.add(planet.position, 'z').min(0).max(10).step(0.001)
 
 // Directional light
 
-const moonLight = new THREE.DirectionalLight('#FFF1E5', 0.8)
-moonLight.position.set(4, 5, -2)
-scene.add(moonLight)
+
 
 const starGeometry = new THREE.BoxGeometry(0.01, 0.01, 0.01)
 const starMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff })
@@ -330,6 +372,17 @@ window.addEventListener('resize', () => {
 
 
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
+
+
+// Ambient light
+const ambientLight = new THREE.AmbientLight('#FFF1E5', 0.8)
+scene.add(ambientLight)
+
+const moonLight = new THREE.DirectionalLight('#FFF1E5', 0.8)
+moonLight.position.set(4, 5, -2)
+gui.add(ambientLight.position, 'x').min(0).max(10).step(0.1)
+camera.add(moonLight)
+
 camera.position.x = 10.264790463695132
 camera.position.y = 10.693767581694678
 camera.position.z = -0.8063634522760551
@@ -360,7 +413,7 @@ window.addEventListener('mousedown', (event) => {
     const mp = document.getElementsByClassName("desc")
     const dot = document.getElementsByClassName("dot")
     gsap.to(dot, {
-        opacity: 0
+        opacity: 1
     })
 
     gsap.to(mp, {
@@ -422,6 +475,7 @@ const tick = () => {
 
     const elapsedTime = clock.getElapsedTime()
     controls.update()
+
 
     console.log(camera.position)
 
