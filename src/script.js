@@ -412,7 +412,7 @@ window.addEventListener('mousedown', (event) => {
     const mp = document.getElementsByClassName("desc")
     const dot = document.getElementsByClassName("dot")
     gsap.to(dot, {
-        opacity: 1
+        opacity: 0
     })
 
     gsap.to(mp, {
@@ -447,8 +447,6 @@ window.addEventListener('mousemove', (event) => {
 ///// Controls  //////
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
-controls.enableZoom = true
-
 
 
 ///// Renderer //////
