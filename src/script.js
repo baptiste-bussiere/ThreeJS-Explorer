@@ -264,7 +264,7 @@ const planet = new THREE.Mesh(planetGeometry, planetMesh)
 
 //position 
 
-// scene.add(planet)
+scene.add(planet)
 
 
 ///// Lights //////
@@ -278,6 +278,7 @@ scene.add(ambientLight)
     // gui.add(planet.position, 'z').min(0).max(10).step(0.001)
 
 // Directional light
+
 const moonLight = new THREE.DirectionalLight('#FFF1E5', 0.8)
 moonLight.position.set(4, 5, -2)
 scene.add(moonLight)
