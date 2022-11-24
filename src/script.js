@@ -264,7 +264,7 @@ const planet = new THREE.Mesh(planetGeometry, planetMesh)
 
 //position 
 
-scene.add(planet)
+// scene.add(planet)
 
 
 ///// Lights //////
