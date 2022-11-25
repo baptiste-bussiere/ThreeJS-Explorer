@@ -284,7 +284,7 @@ window.addEventListener('load', () => {
 
 // Scene
 const scene = new THREE.Scene()
-const fog = new THREE.Fog('#262837', 1, 10)
+const fog = new THREE.Fog('#12161F', 1, 10)
 scene.fog = fog
 
 const textureLoader = new THREE.TextureLoader()
@@ -317,7 +317,7 @@ const planet = new THREE.Mesh(planetGeometry, planetMesh)
 
 //position 
 
-scene.add(planet)
+// scene.add(planet)
 
 
 ///// Lights //////
@@ -417,11 +417,11 @@ window.addEventListener('mousedown', (event) => {
         opacity: 0
     })
 
-    gsap.to(mp, {
-        x: "100vw",
-        duration: 1.5,
-        ease: 'sine.out'
-    })
+    // gsap.to(mp, {
+    //     x: "100vw",
+    //     duration: 1.5,
+    //     ease: 'sine.out'
+    // })
 
 
 })
@@ -461,7 +461,7 @@ const renderer = new THREE.WebGLRenderer({
 
 
 
-renderer.setClearColor('#080D21')
+renderer.setClearColor('#12161F')
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     // renderer.toneMapping = THREE.ACESFilmicToneMapping
