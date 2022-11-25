@@ -106,7 +106,7 @@ body {
     justify-content: space-around;
     background-color: rgb(35, 35, 35);
     z-index: 3;
-    // transform: translateX(100vw);
+    transform: translateX(100vw);
     width: 20%;
     padding: 1em;
     color: #fff;
@@ -168,7 +168,7 @@ body {
 }
 
 .pulse {
-    background-color: coral;
+    background-color: rgba(157, 129, 243, 1);
     position: absolute;
     top: 50%;
     left: 50%;

@@ -317,7 +317,7 @@ const planet = new THREE.Mesh(planetGeometry, planetMesh)
 
 //position 
 
-// scene.add(planet)
+scene.add(planet)
 
 
 ///// Lights //////
@@ -417,11 +417,11 @@ window.addEventListener('mousedown', (event) => {
         opacity: 0
     })
 
-    // gsap.to(mp, {
-    //     x: "100vw",
-    //     duration: 1.5,
-    //     ease: 'sine.out'
-    // })
+    gsap.to(mp, {
+        x: "100vw",
+        duration: 1.5,
+        ease: 'sine.out'
+    })
 
 
 })
