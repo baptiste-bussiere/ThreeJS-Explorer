@@ -105,7 +105,7 @@ body {
     position: absolute;
     background-color: rgb(35, 35, 35);
     z-index: 3;
-    // transform: translateX(100vw);
+    transform: translateX(100vw);
     width: 20%;
     padding: 1em;
     color: #fff;
@@ -125,6 +125,21 @@ body {
     img {
         width: 100%;
         border-radius: 0.5em;
+    }
+    .data {
+        display: flex;
+        width: 100%;
+        margin: 1em 0;
+        .data_child {
+            width: 100%;
+            span {
+                display: flex;
+                align-items: center;
+                span {
+                    margin: 0.1em;
+                }
+            }
+        }
     }
 }
 
@@ -164,4 +179,8 @@ body {
         transform: scale(1.75);
         opacity: 0;
     }
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48
 }
