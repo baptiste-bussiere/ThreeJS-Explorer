@@ -16,262 +16,271 @@ import { Sphere } from 'three';
 
 
 const canvas = document.querySelector('canvas.webgl')
-document.getElementById("paris").addEventListener("click", paris, false);
-document.getElementById("pekin").addEventListener("click", pekin, false);
-document.getElementById("perth").addEventListener("click", perth, false);
-document.getElementById("marrakech").addEventListener("click", marakech, false);
-document.getElementById("newYork").addEventListener("click", newYork, false);
-document.getElementById("rio").addEventListener("click", rio, false);
-const dot = document.getElementsByClassName("dot")
-
-
-function paris() {
-    const camPos = camera.position.x
-    gsap.timeline()
-        .to(camera.position, {
-                x: camPos + 2,
-                duration: 1.5,
-                ease: 'sine.out'
-            }
-
-        )
-        .to(camera.position, {
-                x: 2.198711992207561,
-                y: 2.5309250398609526,
-                z: -0.09708496144180537,
-                duration: 1.5,
-                ease: 'sine.out',
-            }
+    // document.getElementById("paris").addEventListener("click", paris, false);
+    // document.getElementById("pekin").addEventListener("click", pekin, false);
+    // document.getElementById("perth").addEventListener("click", perth, false);
+    // document.getElementById("marrakech").addEventListener("click", marakech, false);
+    // document.getElementById("newYork").addEventListener("click", newYork, false);
+    // document.getElementById("rio").addEventListener("click", rio, false);
+    // const dot = document.getElementsByClassName("dot")
+
+
+// function paris() {
+//     const camPos = camera.position.x
+//     gsap.timeline()
+//         .to(camera.position, {
+//                 x: camPos + 4,
+//                 duration: 1.5,
+//                 ease: 'sine.out'
+//             }
+
+//         )
+//         .to(camera.position, {
+//                 x: 2.198711992207561,
+//                 y: 2.5309250398609526,
+//                 z: -0.09708496144180537,
+//                 duration: 1.5,
+//                 ease: 'sine.out',
+//             }
 
-        )
+//         )
 
-    const parisDiv = document.getElementsByClassName("parisDiv")
+//     const parisDiv = document.getElementsByClassName("parisDiv")
 
 
-    gsap.to(parisDiv, {
-            x: "0",
-            duration: 1.5,
-            ease: 'sine.out',
-        }
-
-    )
-    gsap.to(dot, {
-        opacity: 1,
-        delay: 3,
-    })
-
-
-
-}
-
-
-
-function pekin() {
-    const camPos = camera.position.x
-    gsap.timeline()
-        .to(camera.position, {
-                x: camPos + 5,
-                duration: 1.5,
-                ease: 'sine.ot'
-            }
-
-        )
-        .to(camera.position, {
-                x: -0.9985264262093656,
-                y: 1.880411024301063,
-                z: -1.9329508821241765,
-                duration: 1.5,
-                duration: 1.5,
-                ease: 'sine.out'
-            }
-
-        )
-    const pekinDiv = document.getElementsByClassName("pekinDiv")
+//     gsap.to(parisDiv, {
+//             x: "0",
+//             duration: 4,
+//             ease: 'sine.out',
+//         }
+
+//     )
+//     gsap.to(dot, {
+//         opacity: 1,
+//         delay: 3,
+//     })
+
+
+
+// }
+
+
+
+// function pekin() {
+//     const camPos = camera.position.x
+//     gsap.timeline()
+//         .to(camera.position, {
+//                 x: camPos + 4,
+//                 duration: 1.5,
+//                 ease: 'sine.ot'
+//             }
+
+//         )
+//         .to(camera.position, {
+//                 x: -0.9985264262093656,
+//                 y: 1.880411024301063,
+//                 z: -1.9329508821241765,
+//                 duration: 1.5,
+//                 duration: 1.5,
+//                 ease: 'sine.out'
+//             }
+
+//         )
+//     const pekinDiv = document.getElementsByClassName("pekinDiv")
 
 
-    gsap.to(pekinDiv, {
-            x: "0",
-            duration: 1.5,
-            ease: 'sine.out',
-
-        }
-
-    )
-    gsap.to(dot, {
-        opacity: 1,
-        delay: 3,
-    })
-
-
-}
-
-function newYork() {
-    const camPos = camera.position.x
-    gsap.timeline()
-        .to(camera.position, {
-                x: camPos + 5,
-                duration: 1.5,
-                ease: 'sine.ot'
-            }
-
-        ).to(camera.position, {
-                x: 0.5085394127015427,
-                y: 1.6707533115916855,
-                z: 1.8207113632967111,
-                duration: 1.5,
-                ease: 'sine.out'
-            }
+//     gsap.to(pekinDiv, {
+//             x: "0",
+//             duration: 4,
+//             ease: 'sine.out',
+
+//         }
+
+//     )
+//     gsap.to(dot, {
+//         opacity: 1,
+//         delay: 3,
+//     })
+
+
+// }
+
+// function newYork() {
+//     const camPos = camera.position.x
+//     gsap.timeline()
+//         .to(camera.position, {
+//                 x: camPos + 4,
+//                 duration: 1.5,
+//                 ease: 'sine.ot'
+//             }
+
+//         ).to(camera.position, {
+//                 x: 0.5085394127015427,
+//                 y: 1.6707533115916855,
+//                 z: 1.8207113632967111,
+//                 duration: 1.5,
+//                 ease: 'sine.out'
+//             }
 
-        )
-    const newYorkDiv = document.getElementsByClassName("newYorkDiv")
+//         )
+//     const newYorkDiv = document.getElementsByClassName("newYorkDiv")
 
 
-    gsap.to(newYorkDiv, {
-            x: "0",
-            duration: 1.5,
-            ease: 'sine.out',
-        }
+//     gsap.to(newYorkDiv, {
+//             x: "0",
+//             duration: 4,
+//             ease: 'sine.out',
+//         }
 
-    )
-    gsap.to(dot, {
-        opacity: 1,
-        delay: 3,
+//     )
+//     gsap.to(dot, {
+//         opacity: 1,
+//         delay: 3,
 
-
-
-    })
-
-}
-
-function perth() {
-    const camPos = camera.position.x
-    gsap.timeline()
-        .to(camera.position, {
-                x: camPos + 5,
-                duration: 1.5,
-                ease: 'sine.ot'
-            }
+
+
+//     })
+
+// }
+
+// function perth() {
+//     const camPos = camera.position.x
+//     gsap.timeline()
+//         .to(camera.position, {
+//                 x: camPos + 4,
+//                 duration: 1.5,
+//                 ease: 'sine.ot'
+//             }
 
-        ).to(camera.position, {
-            x: -0.916295041826343,
-            y: -1.2540765000710614,
-            z: -1.9147821474383242,
-            duration: 1.5,
-            ease: 'sine.out'
-        })
-        .to(ambientLight.position, {
-            x: -0.916295041826343,
-            y: -1.2540765000710614,
-            z: -1.9147821474383242,
-            duration: 1.5,
-            ease: 'sine.out'
-        })
-    const perthDiv = document.getElementsByClassName("perthDiv")
+//         ).to(camera.position, {
+//             x: -0.916295041826343,
+//             y: -1.2540765000710614,
+//             z: -1.9147821474383242,
+//             duration: 1.5,
+//             ease: 'sine.out'
+//         })
+//         .to(ambientLight.position, {
+//             x: -0.916295041826343,
+//             y: -1.2540765000710614,
+//             z: -1.9147821474383242,
+//             duration: 1.5,
+//             ease: 'sine.out'
+//         })
+//     const perthDiv = document.getElementsByClassName("perthDiv")
 
 
-    gsap.to(perthDiv, {
-            x: "0",
-            duration: 1.5,
-            ease: 'sine.out',
-        }
+//     gsap.to(perthDiv, {
+//             x: "0",
+//             duration: 4,
+//             ease: 'sine.out',
+//         }
 
-    )
-    gsap.to(dot, {
-        opacity: 1,
-        delay: 3,
+//     )
+//     gsap.to(dot, {
+//         opacity: 1,
+//         delay: 3,
 
 
 
-    })
+//     })
 
 
-}
+// }
 
-function marakech() {
-    const camPos = camera.position.x
-    gsap.timeline()
-        .to(camera.position, {
-                x: camPos + 3,
-                duration: 1.5,
-                ease: 'sine.ot'
-            }
+// function marakech() {
+//     const camPos = camera.position.x
+//     gsap.timeline()
+//         .to(camera.position, {
+//                 x: camPos + 4,
+//                 duration: 1.5,
+//                 ease: 'sine.ot'
+//             }
 
-        ).to(camera.position, {
-            x: 2.1474317791605753,
-            y: 1.3809723537339964,
-            z: 0.26353936491437174,
-            duration: 1.5,
-            ease: 'sine.out'
-        })
-    const maraDiv = document.getElementsByClassName("maraDiv")
+//         ).to(camera.position, {
+//             x: 2.1474317791605753,
+//             y: 1.3809723537339964,
+//             z: 0.26353936491437174,
+//             duration: 1.5,
+//             ease: 'sine.out'
+//         })
+//     const maraDiv = document.getElementsByClassName("maraDiv")
 
 
-    gsap.to(maraDiv, {
-            x: "0",
-            duration: 1.5,
-            ease: 'sine.out',
-        }
+//     gsap.to(maraDiv, {
+//             x: "0",
+//             duration: 4,
+//             ease: 'sine.out',
+//         }
 
-    )
-    gsap.to(dot, {
-        opacity: 1,
-        delay: 3,
+//     )
+//     gsap.to(dot, {
+//         opacity: 1,
+//         delay: 3,
 
 
 
-    })
+//     })
 
 
-}
+// }
 
-function rio() {
-    const camPos = camera.position.x
-    gsap.timeline()
-        .to(camera.position, {
-                x: camPos + 3,
-                duration: 1.5,
-                ease: 'sine.ot'
-            }
+// function rio() {
+//     const camPos = camera.position.x
+//     gsap.timeline()
+//         .to(camera.position, {
+//                 x: camPos + 4,
+//                 duration: 1.5,
+//                 ease: 'sine.ot'
+//             }
 
-        ).to(camera.position, {
-            x: 1.8537427679803309,
-            y: -1.0000599261138936,
-            z: 1.6921121926180542,
-            duration: 1.5,
-            ease: 'sine.out'
-        })
-    const rioDiv = document.getElementsByClassName("rioDiv")
+//         ).to(camera.position, {
+//             x: 1.8537427679803309,
+//             y: -1.0000599261138936,
+//             z: 1.6921121926180542,
+//             duration: 1.5,
+//             ease: 'sine.out'
+//         })
+//     const rioDiv = document.getElementsByClassName("rioDiv")
 
 
-    gsap.to(rioDiv, {
-            x: "0",
-            duration: 1.5,
-            ease: 'sine.out',
+//     gsap.to(rioDiv, {
+//             x: "0",
+//             duration: 4,
+//             ease: 'sine.out',
 
-        }
+//         }
 
-    )
-    gsap.to(dot, {
-        opacity: 1,
-        delay: 3,
+//     )
+//     gsap.to(dot, {
+//         opacity: 1,
+//         delay: 3,
 
 
 
-    })
+//     })
 
-}
+// }
 
 
 
 
-const loaderContainer = document.querySelector('.loader-container');
-window.addEventListener('load', () => {
+// const loaderContainer = document.querySelector('.loader-container');
+// window.addEventListener('load', () => {
 
-    gsap.to(loaderContainer, {
-        opacity: 0,
-        display: "none"
-    })
-});
+//     gsap.to(loaderContainer, {
+//         opacity: 0,
+//         display: "none"
+//     })
+//     gsap.to(camera.position, {
+//             x: 4.413627918071142,
+//             y: 2.368210056971596,
+//             z: 0.6861464791526538,
+//             duration: 2,
+//             ease: 'power4.out',
+//         }
+
+//     )
+// });
 
 // Scene
 const scene = new THREE.Scene()
@@ -308,7 +317,7 @@ const planet = new THREE.Mesh(planetGeometry, planetMesh)
 
 //position 
 
-scene.add(planet)
+// scene.add(planet)
 
 
 ///// Lights //////
@@ -382,18 +391,11 @@ moonLight.position.set(4, 0, 3.9)
 
 camera.add(moonLight)
 
-camera.position.x = 10.264790463695132
-camera.position.y = 10.693767581694678
-camera.position.z = -0.8063634522760551
-gsap.to(camera.position, {
-        x: 4.413627918071142,
-        y: 2.368210056971596,
-        z: 0.6861464791526538,
-        duration: 1.5,
-        ease: 'expo.out',
-    }
+camera.position.x = 19.534899115961615
+camera.position.y = 10.48179489422567
+camera.position.z = 3.0369104258040345
 
-)
+
 
 
 
@@ -415,11 +417,11 @@ window.addEventListener('mousedown', (event) => {
         opacity: 0
     })
 
-    gsap.to(mp, {
-        x: "100vw",
-        duration: 1.5,
-        ease: 'sine.out'
-    })
+    // gsap.to(mp, {
+    //     x: "100vw",
+    //     duration: 1.5,
+    //     ease: 'sine.out'
+    // })
 
 
 })
@@ -447,6 +449,7 @@ window.addEventListener('mousemove', (event) => {
 ///// Controls  //////
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
+controls.enableZoom = true
 
 
 ///// Renderer //////

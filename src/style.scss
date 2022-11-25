@@ -100,11 +100,12 @@ body {
     position: absolute;
     background-color: #fff;
     z-index: 3;
-    transform: translateX(100vw);
+    // transform: translateX(100vw);
     width: 20%;
-    height: 100%;
-    right: 0px;
-    top: 0;
+    right: 1em;
+    border-radius: 1em;
+    top: 1em;
+    bottom: 1em;
 }
 
 .pulse {
