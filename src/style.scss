@@ -113,6 +113,8 @@ body {
     right: 1em;
     border-radius: 1em;
     top: 1em;
+    overflow-y: scroll;
+    overflow: scroll;
     bottom: 1em;
     flex-direction: column;
     h1 {
@@ -158,11 +160,11 @@ body {
         font-family: 'termina', sans-serif;
         width: 100%;
         text-decoration: none;
-        transition: 200ms;
         background: linear-gradient(36deg, rgba(157, 129, 243, 1) 0%, rgba(27, 75, 225, 1) 59%, rgba(248, 125, 135, 1) 100%);
         color: #fff;
+        transition: 250ms;
         &:hover {
-            background: linear-gradient(36deg, rgba(248, 125, 135, 1) 0%, rgba(27, 75, 225, 1) 59%, rgba(157, 129, 243, 1) 100%);
+            text-decoration: underline;
         }
     }
 }
