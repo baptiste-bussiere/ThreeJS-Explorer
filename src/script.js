@@ -1,10 +1,8 @@
 import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import { CSS3DRenderer, CSS3DObject } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
 import gsap from 'gsap'
-import * as dat from 'lil-gui'
-import { Sphere } from 'three';
+
 
 
 ///// Start //////
@@ -389,7 +387,7 @@ scene.add(ambientLight)
 const moonLight = new THREE.DirectionalLight('#FFF1E5', 0.8)
 moonLight.position.set(4, 0, 3.9)
 
-camera.add(moonLight)
+scene.add(moonLight)
 
 camera.position.x = 19.534899115961615
 camera.position.y = 10.48179489422567
