@@ -6,7 +6,7 @@ Navigation entre les grandes villes du globe, je vous laisse decouvrir le projet
 
 Retrouver le projet [ici](https://three-js-loader-k74rf50n9-baptiste-bussiere.vercel.app) ! 
 
-[https://three-js-loader-k74rf50n9-baptiste-bussiere.vercel.app](https://three-js-loader-k74rf50n9-baptiste-bussiere.vercel.app
+[https://three-js-loader-k74rf50n9-baptiste-bussiere.vercel.app](https://three-js-loader-k74rf50n9-baptiste-bussiere.vercel.app)
 
 ## Lancer le projet
 
