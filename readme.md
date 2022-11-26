@@ -14,7 +14,7 @@ Retrouver le projet [ici](https://three-js-loader-k74rf50n9-baptiste-bussiere.ve
 Cloner le projet 
 
 ```bash
-  git clone https://github.com/baptiste-bussiere/ThreeJS-Loader.git
+  git clone https://github.com/baptiste-bussiere/ThreeJS-Explorer.git
 ```
 
 
