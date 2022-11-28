@@ -475,7 +475,7 @@ const tick = () => {
     controls.update()
 
 
-    console.log(camera.position)
+  
 
     renderer.render(scene, camera)
 
